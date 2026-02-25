@@ -1,1 +1,7 @@
-*{}
+* {}
+
+.home {
+  background-color: orange;
+  text-align: right;
+  width: full;
+}
