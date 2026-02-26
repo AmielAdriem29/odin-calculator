@@ -1,7 +1,28 @@
-* {}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
 
-.home {
-  background-color: orange;
+.container {
+  width: 500px;
+}
+
+.display {
+  background-color: whitesmoke;
   text-align: right;
-  width: full;
+  height: 20px;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.btn button {
+  background-color: whitesmoke;
+  border: 1px solid #ccc;
+  padding: 2px;
+  font-size: 12px;
+  cursor: pointer;
+  appearance: none;
+  border: none;
 }
