@@ -6,15 +6,25 @@ body {
 }
 
 .container {
-  width: 500px;
+  width: 200px;
 }
 
 .display {
   background-color: whitesmoke;
   text-align: right;
+  width: 100px;
   height: 20px;
   padding: 2px;
+  box-sizing: border-box;
   border-radius: 2px;
+}
+
+.btn div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+  width: 100px;
 }
 
 .btn button {
@@ -25,4 +35,11 @@ body {
   cursor: pointer;
   appearance: none;
   border: none;
+  width: 22px;
+  height: 18px;
+  border-radius: 2px;
+}
+
+button.operations {
+  background-color: orange;
 }
