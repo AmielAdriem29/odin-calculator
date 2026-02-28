@@ -1,2 +1,3 @@
 - Fix the css flexing of the equals button
-- Implement the javscript
+- Implement clear function and delete function
+- make the currentInput append to the previousInput and currentOperation
