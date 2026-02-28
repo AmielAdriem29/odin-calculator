@@ -4,7 +4,7 @@ let currentOperation = '';
 
 function appendInput(input) {
   currentInput += input
-  if (currentOperation !== '') {
+  if (currentOperation !== '' || document.querySelector('#display').textContent !== "0") {
     document.querySelector("#display").textContent += " " + currentInput
     return
   }
@@ -23,13 +23,19 @@ function operate() {
 
 }
 
-function clear() {
-  document.querySelector('#display').textContent = 0;
+function clearDisplay() {
+  document.querySelector('#display').textContent = "0";
+  currentInput = ""
+  currentOperation = ""
+  previousInput = ""
   console.log("clear clicked")
 }
 
-function del() {
-  document.querySelector('#display').textContent.slice(0, -1);
-  console.log("clear clicked")
-
+function deleteChar() {
+  let text = document.querySelector('#display').textContent
+  text = text.slice(0, -2)
+  if (text === "") {
+    text = "0"
+  }
+  document.querySelector('#display').textContent = text.slice(0, -2)
 }
