@@ -11,10 +11,11 @@ function appendInput(input) {
 }
 
 function appendOperation(operation) {
-  if (currentOperation !== "") {
-    alert("Only one operation at a time!")
-    return
+  if (currentInput == "" && previousInput) return
+  if (currentInput != "" && previousInput != "" && currentOperation != "") {
+    operate()
   }
+
   currentOperation = operation;
   previousInput = currentInput
   currentInput = ""
@@ -37,7 +38,7 @@ function operate() {
       break;
     case "/":
       if (a == 0) {
-        alert("Cannot divide by zero!")
+        alert("Cannot divide by zero! >:D")
         return;
       }
       result = a / b
