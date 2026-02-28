@@ -14,33 +14,33 @@
       </div>
       <div class='btn'>
         <div >
-          <button type="" id="0" >Clr</button>
-          <button type="" id="decimal-point" >Del</button>
-          <button type="" id="plus" >%</button>
-          <button type="" id="equals" >/</button>
+          <button type="" onclick="clear()">Clr</button>
+          <button type="" onclick="delete()" >Del</button>
+          <button type="" onclick="appendOperation('%')" >%</button>
+          <button type="" onclick="appendOperation('/')" >/</button>
         </div>     
         <div >
-          <button type="" id="seven">7</button>
-          <button type="" id="eight">8</button>
-          <button type="" id="nine">9</button>
-          <button tyope="" id="divide" >*</button>
+          <button type="" onclick="appendInput('7')">7</button>
+          <button type="" onclick="appendInput('8')">8</button>
+          <button type="" onclick="appendInput('9')">9</button>
+          <button tyope="" onclick="appendOperation('*')" >*</button>
         </div>
         <div >
-          <button type="" id="four">4</button>
-          <button type="" id="five">5</button>
-          <button type="" id="six">6</button>
-          <button type="" id="multiply" >-</button>
+          <button type="" onclick="appendInput('4')">4</button>
+          <button type="" onclick="appendInput('5')">5</button>
+          <button type="" onclick="appendInput('6')">6</button>
+          <button type="" onclick="appendOperation('-')" >-</button>
         </div>      oo
         <div >
-          <button type="" id="one">1</button>
-          <button type="" id="two">2</button>
-          <button type="" id="three">3</button>
-          <button type="" id="minus">+</button>
+          <button type="" onclick="appendInput('1')">1</button>
+          <button type="" onclick="appendInput('2')">2</button>
+          <button type="" onclick="appendInput('3')">3</button>
+          <button type="" onclick="appendOperation('+')">+</button>
         </div>
         <div >
-          <button type="" id="one">0</button>
-          <button type="" id="two">.</button>
-          <button type="" id="three" class="operations">=</button>
+          <button type="" onclick="appendInput('0')">0</button>
+          <button type="" onclick="appendInput('.')">.</button>
+          <button type="" onclick="operate()" class="operations">=</button>
         </div>  
       </div>
     </div>
