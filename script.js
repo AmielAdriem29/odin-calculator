@@ -4,8 +4,9 @@ let currentOperation = '';
 
 function appendInput(input) {
   currentInput += input
-  if (currentOperation) {
-    document.querySelector("#display").textContent += currentInput
+  if (currentOperation !== '') {
+    document.querySelector("#display").textContent += " " + currentInput
+    return
   }
   document.querySelector("#display").textContent = currentInput
   console.log("clicked" + currentInput)
