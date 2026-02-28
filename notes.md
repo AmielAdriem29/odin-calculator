@@ -1,0 +1,2 @@
+- Fix the css flexing of the equals button
+- Implement the javscript
