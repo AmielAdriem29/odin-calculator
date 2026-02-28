@@ -3,6 +3,7 @@ let previousInput = '';
 let currentOperation = '';
 
 function appendInput(input) {
+  if (currentInput.includes(".") && input == ".") return
   if (currentInput == "0") currentInput = ""
   currentInput += input
   if (currentInput === ".") currentInput = "0."
@@ -45,7 +46,8 @@ function operate() {
       result = a % b
       break;
   }
-  document.querySelector("#display").textContent = result.toFixed(3)
+  cleanRes = parseFloat(result.toFixed(3))
+  document.querySelector("#display").textContent = cleanRes
   currentInput = result.toString()
   previousInput = ""
   currentOperation = ""
