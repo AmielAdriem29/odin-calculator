@@ -3,7 +3,9 @@ let previousInput = '';
 let currentOperation = '';
 
 function appendInput(input) {
+  if (currentInput == "0") currentInput = ""
   currentInput += input
+  if (currentInput === ".") currentInput = "0."
   document.querySelector('#display').textContent = `${previousInput}${currentOperation}${currentInput}`
 }
 
@@ -19,7 +21,34 @@ function appendOperation(operation) {
 }
 
 function operate() {
-
+  let result = 0;
+  let a = parseFloat(previousInput)
+  let b = parseFloat(currentInput)
+  switch (currentOperation) {
+    case "+":
+      result = a + b
+      break;
+    case "-":
+      result = a - b
+      break;
+    case "*":
+      result = a * b
+      break;
+    case "/":
+      if (a == 0) {
+        alert("Cannot divide by zero!")
+        return;
+      }
+      result = a / b
+      break;
+    case "%":
+      result = a % b
+      break;
+  }
+  document.querySelector("#display").textContent = result.toFixed(3)
+  currentInput = result.toString()
+  previousInput = ""
+  currentOperation = ""
 }
 
 function clearDisplay() {
