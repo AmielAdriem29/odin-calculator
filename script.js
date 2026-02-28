@@ -11,7 +11,7 @@ function appendInput(input) {
 }
 
 function appendOperation(operation) {
-  if (currentInput == "" && previousInput) return
+  if (currentInput == "" && previousInput == "") return
   if (currentInput != "" && previousInput != "" && currentOperation != "") {
     operate()
   }
@@ -37,7 +37,7 @@ function operate() {
       result = a * b
       break;
     case "/":
-      if (a == 0) {
+      if (b == 0) {
         alert("Cannot divide by zero! >:D")
         return;
       }
@@ -74,3 +74,28 @@ function deleteChar() {
   document.querySelector('#display').textContent = `${previousInput}${currentOperation}${currentInput}` || "0"
 
 }
+
+window.addEventListener("keydown", (e) => {
+  const key = e.key
+
+  if (/[0-9.]/.test(key)) {
+    appendInput(key)
+  }
+
+  if (['+', '-', '*', '/', '%'].includes(key)) {
+    appendOperation(key)
+  }
+
+  if (key === 'Enter' || key === '=') {
+    e.preventDefault()
+    operate()
+  }
+
+  if (key === 'Backspace') {
+    deleteChar()
+  }
+
+  if (key === 'Escape') {
+    clearDisplay()
+  }
+})
