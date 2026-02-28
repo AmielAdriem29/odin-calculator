@@ -4,19 +4,18 @@ let currentOperation = '';
 
 function appendInput(input) {
   currentInput += input
-  if (currentOperation !== '' || document.querySelector('#display').textContent !== "0") {
-    document.querySelector("#display").textContent += " " + currentInput
-    return
-  }
-  document.querySelector("#display").textContent = currentInput
-  console.log("clicked" + currentInput)
+  document.querySelector('#display').textContent = `${previousInput}${currentOperation}${currentInput}`
 }
 
 function appendOperation(operation) {
+  if (currentOperation !== "") {
+    alert("Only one operation at a time!")
+    return
+  }
   currentOperation = operation;
   previousInput = currentInput
   currentInput = ""
-  document.querySelector("#display").textContent = `${previousInput}  ${currentOperation}`
+  document.querySelector("#display").textContent = `${previousInput}${currentOperation}`
 }
 
 function operate() {
@@ -32,10 +31,14 @@ function clearDisplay() {
 }
 
 function deleteChar() {
-  let text = document.querySelector('#display').textContent
-  text = text.slice(0, -2)
-  if (text === "") {
-    text = "0"
+  if (currentInput !== "") {
+    currentInput = currentInput.slice(0, -1)
+  } else if (currentOperation !== "") {
+    currentOperation = ""
+    currentInput = previousInput;
+    previousInput = "";
   }
-  document.querySelector('#display').textContent = text.slice(0, -2)
+
+  document.querySelector('#display').textContent = `${previousInput}${currentOperation}${currentInput}` || "0"
+
 }
